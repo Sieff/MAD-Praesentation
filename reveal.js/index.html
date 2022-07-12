@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					Getting a lower bound for the worst case performance $\rho$ of TilePacking.
+					\begin{equation}
+						\rho \geq 0.09121
+					\end{equation}
+					Looking at the set of rectangles $R = \{r_i:i=1,\ldots,n\}$ from a TilePacking, if
+					\begin{equation*}
+						\text{area}(r_i) \geq 0.09121 * \text{area}(t_i)
+					\end{equation*}
+					for every $i$, we would be done.
+				</section>
+				<section>
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/GreedyPacking.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					\begin{equation}
+						a = b
+					\end{equation}
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				width: 1920,
+				height: 1080,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
+				mathjax3: {
+					mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+					tex: {
+						inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ]  ],
+						tags: 'ams',
+					},
+					options: {
+						skipHtmlTags: [ 'script', 'noscript', 'style', 'textarea', 'pre' ]
+					},
+				}
+			});
+		</script>
+	</body>
+</html>
