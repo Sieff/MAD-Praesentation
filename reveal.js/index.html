@@ -16,32 +16,358 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-
 				<section>
-					Getting a lower bound for the worst case performance $\rho$ of TilePacking.
-					\begin{equation}
-						\rho \geq 0.09121
-					\end{equation}
-					Looking at the set of rectangles $R = \{r_i:i=1,\ldots,n\}$ from a TilePacking, if
-					\begin{equation*}
-						\text{area}(r_i) \geq 0.09121 * \text{area}(t_i)
-					\end{equation*}
-					for every $i$, we would be done.
+					<h1>Packing anchored rectangles</h1>
+					<h3>Steffen Schubert</h3>
+					<div style="padding: 0 100px">
+						July 29, 2022
+					</div>
 				</section>
 				<section>
+					<!-- Introduction video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Introduction_0000.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Introduction video2 !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Introduction_0001.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Introduction video3 !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Introduction_0002.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<h2>Conjecture</h2>
+					At least half of the area can always be covered
+				</section>
+				<section>
+					<!-- Diagonal video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/DiagonalPacking.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<h2>Target of this proof</h2>
+					At least a constant area of $0.09121$ can always be covered.
+				</section>
+				<section>
+					<h1>Construction of packings</h1>
+				</section>
+				<section>
+					<h2>Ordering of points</h2>
+					For each point $s \in S$ denote with $x(s)$ and $y(s)$ the coordinates of point s.
+					\begin{equation*}
+					x(s_i) + y(s_i) \geq x(s_j) + y(s_j)
+					\end{equation*}
+					for $1 \leq i < j \leq n$.
+				</section>
+				<section>
+					<!-- Sweeping line video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/SweepingLine.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Greedy Packing video !-->
 					<video data-autoplay width="1920" height="1080">
 						<source src="http://127.0.0.1:8887/GreedyPacking.mp4" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 				</section>
 				<section>
+					<h2>Dominance order</h2>
+					For two points, $p = (x_p, y_p)$ and $q = (x_q, y_q)$, we say that $p \preceq q$ (q dominates p) if
+					\begin{equation*}
+					x_p \leq x_q \text{ and } y_p \leq y_q:
+					\end{equation*}
+					With this definition, an axis-aligned rectangle with lower left corner $c_1$ and upper right corner $c_2$ can be written as $\{p \in \mathbb{R}^2 : c_1 \preceq p \preceq c_2\}$.
+				</section>
+				<section>
+					<h2>Tiles</h2>
+					For $i = 1, 2, \ldots, n$ let tile $t_i$ be the set of points in $U$ that dominate $s_i$, but are not yet contained in any previous tile $t_j, j < i$.
+					\begin{equation*}
+					t_i = \{p \in [0,1]^2: s_i \preceq p \text{ and } s_j \preceq p\text{ } \forall j < i\}
+					\end{equation*}
+					Since $(0, 0) \in S$ the tiles jointly cover U.
+				</section>
+				<section>
+					<!-- Tile Packing video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/TilePacking.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<h2>Greedy vs Tiling</h2>
+					Lemma: For each point $s_i \in S$, GreedyPacking chooses a rectangle whose area is at least as large as the area of the rectangle chosen by TilePacking.
+				</section>
+				<section>
+					<!-- Greedy vs Tile Packing video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/MultiPacking.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<h1>Analysis of TilePacking</h1>
+				</section>
+				<section>
+					<h2>The goal</h2>
+					Getting a lower bound for the worst case performance $\rho$ of TilePacking.
+					\begin{equation*}
+					\rho \geq 0.09121
+					\end{equation*}
+					Looking at the set of rectangles $R = \{r_i:i=1,\ldots,n\}$ from a TilePacking, if
+					\begin{equation*}
+					\text{area}(r_i) \geq 0.09121 * \text{area}(t_i)
+					\end{equation*}
+					for every $i$, we would be done.
+				</section>
+				<section>
+					<h2 class="no-t">$\beta$-TILES</h2>
+					For $\beta \geq 5$, $t_i$ is a $\beta$-tile, if
+					\begin{equation*}
+					\text{area}(r_i) < \frac{1}{\beta} \text{area}(t_i)
+					\end{equation*}
+				</section>
+				<section>
+					<p>$\text{area}(r_i)/\text{area}(t_i)$ may be arbitrarily small.</p>
+					<p>Upper bound of the area of all tiles, where this fraction is small:</p>
+					$F(\beta, \lambda), \beta \geq 5, 0 < \lambda < 1 $
+				</section>
+				<section>
+					All of the non-$\beta$-tiles will cover $1 - F(\beta, \lambda)$ in area and each will result in a rectangle with
+					\begin{equation*}
+					\text{area}(r_i) \geq \frac{1}{\beta} \text{area}(t_i)
+					\end{equation*}
+					Therefore, the total area of all rectangles in $R$ is
 					\begin{equation}
-						a = b
+					\sum^n_{i=1}\text{area}(r_i) \geq \rho \geq \frac{1 - F(\beta, \lambda)}{\beta}
 					\end{equation}
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0000.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0001.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0002.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0003.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0004.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					Lemma: Let $\beta \geq 1$ and $t$ be a staircase polygon of height $h$ and
+					width $w$. If the area of every axis-aligned rectangle contained in $t$ is less
+					than $\text{area}(t)/\beta$, then
+					\begin{equation}
+						\text{area}(t) < \frac{\beta}{e^{\beta-1}} * hw
+					\end{equation}
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0005.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0006.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0007.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0008.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0009.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0010.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0011.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0012.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0013.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0014.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Beta properties video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/BetaProperties_0015.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0000.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0001.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0002.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0003.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0004.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					Lemma: The width of the right tip of $t_i$ is at least $|a_i^\prime|$, hence $2|a_i^\prime|\leq |a_i|$.
+					Similarly, the height of the upper tip of $t_i$ is at least $|b_i^\prime|$, hence $2|b_i^\prime|\leq |b_i|$.
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0005.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0006.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0007.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0008.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0009.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0010.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Sections and Tips video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/SectionsTips_0011.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
 				</section>
 			</div>
 		</div>
 
+		<link rel="stylesheet" href="dist/theme/blood.css">
+		<link rel="stylesheet" href="Styles.css">
 		<script src="dist/reveal.js"></script>
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
@@ -55,6 +381,7 @@
 				hash: true,
 				width: 1920,
 				height: 1080,
+				transition: "none",
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.MathJax3 ],
 				mathjax3: {
