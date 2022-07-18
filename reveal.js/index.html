@@ -109,7 +109,7 @@
 				</section>
 				<section>
 					<h2>Greedy vs Tiling</h2>
-					Lemma: For each point $s_i \in S$, GreedyPacking chooses a rectangle whose area is at least as large as the area of the rectangle chosen by TilePacking.
+					Lemma 1: For each point $s_i \in S$, GreedyPacking chooses a rectangle whose area is at least as large as the area of the rectangle chosen by TilePacking.
 				</section>
 				<section>
 					<!-- Greedy vs Tile Packing video !-->
@@ -191,7 +191,7 @@
 					</video>
 				</section>
 				<section>
-					Lemma: Let $\beta \geq 1$ and $t$ be a staircase polygon of height $h$ and
+					Lemma 2: Let $\beta \geq 1$ and $t$ be a staircase polygon of height $h$ and
 					width $w$. If the area of every axis-aligned rectangle contained in $t$ is less
 					than $\text{area}(t)/\beta$, then
 					\begin{equation}
@@ -311,7 +311,7 @@
 					</video>
 				</section>
 				<section>
-					Lemma: The width of the right tip of $t_i$ is at least $|a_i^\prime|$, hence $2|a_i^\prime|\leq |a_i|$.
+					Lemma 3: The width of the right tip of $t_i$ is at least $|a_i^\prime|$, hence $2|a_i^\prime|\leq |a_i|$.
 					Similarly, the height of the upper tip of $t_i$ is at least $|b_i^\prime|$, hence $2|b_i^\prime|\leq |b_i|$.
 				</section>
 				<section>
@@ -360,6 +360,121 @@
 					<!-- Sections and Tips video !-->
 					<video data-autoplay width="1920" height="1080">
 						<source src="http://127.0.0.1:8887/sections/SectionsTips_0011.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					Reminder: right and upper tips are each $< \frac{2}{\beta}\text{area}(t_i)$
+					\begin{align*}
+						\text{area}(t_i^\prime) &> \frac{\beta - 4}{\beta}\text{area}(t_i)\\
+						\frac{1}{\beta - 4}\text{area}(t_i^\prime) &> \frac{1}{\beta}\text{area}(t_i)\\
+						\frac{\beta}{\beta - 4}\text{area}(t_i^\prime) &> \text{area}(t_i)\\
+					\end{align*}
+				</section>
+				<section>
+					Combine with Lemma 2:
+					\begin{equation} %eq3
+						\text{area}(t_i) < \frac{\beta}{\beta - 4}\text{area}(t_i^\prime) \overset{\text{Lemma 2}}{<} \frac{\beta}{\beta - 4}\frac{\beta - 4}{e^{\beta-5}} * |a_i^\prime| * |b_i^\prime| = \frac{\beta}{e^{\beta-5}} * |a_i^\prime| * |b_i^\prime|
+					\end{equation}
+					Reminder Lemma 2:
+					\begin{equation*}
+					\text{area}(t) < \frac{\beta}{e^{\beta-1}} * hw
+					\end{equation*}
+				</section>
+				<section>
+					<h2>Tall and wide tiles</h2>
+					<p>
+						A $\beta$-tile $t_i$ is tall if $|a_i^\prime| < |b_i^\prime|$ and it is wide if $|a_i^\prime| \geq |b_i^\prime|$.
+					</p>
+					For wide $\beta$-tiles with $\max(|a_i^\prime|, |b_i^\prime|) = |a_i^\prime|$, (3) implies
+					\begin{equation} %eq4
+						\text{area}(t_i) < \frac{\beta}{e^{\beta-5}} * |a_i^\prime|^2
+					\end{equation}
+					<p>
+						Remark: Every proof will have a symmetrical counterpart
+					</p>
+					<p>
+						Remark 2: It's enough to show that the area of all wide tiles is bounded by $\frac{1}{2}F(\beta, \lambda)$
+					</p>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0000.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0001.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0002.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0003.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					Lemma 4: For every $i= 1,\ldots,n$, the interior of $\Delta_i$ is disjoint
+					from $S$.
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0004.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0005.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0006.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0007.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0008.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0009.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
+				<section>
+					<!-- Traingles video !-->
+					<video data-autoplay width="1920" height="1080">
+						<source src="http://127.0.0.1:8887/sections/Triangles_0010.mp4" type="video/mp4">
 						Your browser does not support the video tag.
 					</video>
 				</section>
