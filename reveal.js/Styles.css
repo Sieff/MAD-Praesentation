@@ -1,3 +1,15 @@
 .no-t {
     text-transform: none !important;
 }
+
+.wrapper {
+    width: 1920px;
+    overflow: hidden; /* will contain if #first is longer than #second */
+}
+.left {
+    width: 960px;
+    float:left; /* add this */
+}
+.right {
+    overflow: hidden; /* if you don't want #second to wrap below #first */
+}
