@@ -180,16 +180,16 @@
 					for every $i$, we would be done.
 				</section>
 				<section>
+					<p>$\text{area}(r_i)/\text{area}(t_i)$ may be arbitrarily small.</p>
+					<p>Upper bound of the area of all tiles, where this fraction is small:</p>
+					$F(\beta, \lambda), \beta \geq 5, 0 < \lambda < 1 $
+				</section>
+				<section>
 					<h2 class="no-t">$\beta$-TILES</h2>
 					For $\beta \geq 5$, $t_i$ is a $\beta$-tile, if
 					\begin{equation*}
 						\text{area}(r_i) < \frac{1}{\beta} \text{area}(t_i)
 					\end{equation*}
-				</section>
-				<section>
-					<p>$\text{area}(r_i)/\text{area}(t_i)$ may be arbitrarily small.</p>
-					<p>Upper bound of the area of all tiles, where this fraction is small:</p>
-					$F(\beta, \lambda), \beta \geq 5, 0 < \lambda < 1 $
 				</section>
 				<section>
 					All of the non-$\beta$-tiles will cover $1 - F(\beta, \lambda)$ in area and each will result in a rectangle with
@@ -328,6 +328,7 @@
 					\begin{equation} %eq4
 						\text{area}(t_i) < \frac{\beta}{e^{\beta-5}} * |a_i^\prime|^2
 					\end{equation}
+					Denote with $W$ the set of all wide tiles
 					<p>
 						Remark: Every proof will have a symmetrical counterpart
 					</p>
@@ -454,6 +455,14 @@
 					\end{equation*}
 				</section>
 
+				<section>
+					<h2>
+						Overlapping trapezoids
+					</h2>
+					<p>Idea: Choose some "large" trapezoids, which are pairwise disjoint and charge them extra for the "smaller" trapezoids overlapping them.</p>
+					<p>Lemma 6: Assume that $A_i \cap A_j \not = \emptyset$, for some $i, j \in W$, $i \not = j$; and $A_i$ is above $A_j$. Then $l_j \cap \Delta_i \subseteq a_j^\prime$ and $(2−\lambda)|a_i^\prime| \leq |a_j^\prime|$.</p>
+				</section>
+
 				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0000.mp4">
 					<!-- Charging video !-->
 				</section>
@@ -469,12 +478,14 @@
 				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0004.mp4">
 					<!-- Charging video !-->
 				</section>
+				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0005.mp4">
+					<!-- Charging video !-->
+				</section>
 
 				<section>
 					<h2>
 						Overlapping trapezoids
 					</h2>
-					<p>Idea: Choose some "large" trapezoids, which are pairwise disjoint and charge them extra for the "smaller" trapezoids overlapping them.</p>
 					<p>Denote with $l_i$ the supporting line of $a_i$.</p>
 					<p>We say $A_i$ is $\textit{above}$ $A_j$, if $i \not = j$ and $l_i$ is above $l_j$.</p>
 					<p>Lemma 6: Assume that $A_i \cap A_j \not = \emptyset$, for some $i, j \in W$, $i \not = j$; and $A_i$ is above $A_j$. Then $l_j \cap \Delta_i \subseteq a_j^\prime$ and $(2−\lambda)|a_i^\prime| \leq |a_j^\prime|$.</p>
@@ -575,6 +586,12 @@
 				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0013.mp4">
 					<!-- Charging video !-->
 				</section>
+				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0014.mp4">
+					<!-- Charging video !-->
+				</section>
+				<section data-background-video="http://127.0.0.1:8887/sections/Charging_0015.mp4">
+					<!-- Charging video !-->
+				</section>
 				<section>
 					<p>$A_j$ will be the sink</p>
 					<p>For $k \geq 1$, let $W_j^k \subseteq W$ be the set of indices $i$ of trapezoids $A_i$ that have a directed path of length exactly $k$ to $A_j$ in $G$</p>
@@ -582,7 +599,6 @@
 					<p>$W_j = \bigcup_{k\geq 1} W_k^j$ is the set of all indices, with path to $A_j$ in $G$</p>
 					<p>For each $A_i$, $i\in W_j$, denote by $A^*_i$ the unique trapezoid with $(A_i, A^*_i)\in G$</p>
 				</section>
-				<!-- TODO: Stripes section -->
 				<section data-background-video="http://127.0.0.1:8887/sections/Stripes_0000.mp4">
 					<!-- Stripes video !-->
 				</section>
